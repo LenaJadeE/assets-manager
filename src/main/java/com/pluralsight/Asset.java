@@ -9,9 +9,9 @@ public class Asset {
     private BigDecimal originalCost;
 
     public Asset(String description, String dateAcquired, BigDecimal originalCost) {
-        this.description = description;
-        this.dateAcquired = dateAcquired;
-        this.originalCost = originalCost;
+        setDescription(description);
+        setDateAcquired(dateAcquired);
+        setOriginalCost(originalCost);
     }
 
     public String getDescription() {
