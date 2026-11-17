@@ -25,3 +25,4 @@ public class Jewelry extends Asset {
         return getAppraisedValue();
     }
 }
+
