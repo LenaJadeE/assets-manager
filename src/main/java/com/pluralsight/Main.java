@@ -19,6 +19,7 @@ public class Main {
                 "Ford F-150", thisYear - 9, 140000));
         myAssets.add(new Vehicle("Grandma's Camry", "2012-05-05", new BigDecimal("24000"),
                 "Toyota Camry", thisYear - 12, 210000));
+        myAssets.add(new Cash("mattress stash", "2024-12-01", new BigDecimal("2500")));
 
         for (Asset asset : myAssets) {
             String message = "";
@@ -26,6 +27,8 @@ public class Main {
                 message = "House at " + house.getAddress();
             } else if (asset instanceof Vehicle vehicle) {
                 message = "Vehicle: " + vehicle.getYear() + " " + vehicle.getMakeModel();
+            } else if (asset instanceof Cash) {
+                message = "Cash under the mattress";
             }
 
             System.out.println(asset.getDescription());
