@@ -11,9 +11,9 @@ public class Vehicle extends Asset{
     public Vehicle(String description, String dateAcquired, BigDecimal originalCost,
                    String makeModel, int year, int odometer) {
         super(description, dateAcquired, originalCost);
-        this.makeModel = makeModel;
-        this.year = year;
-        this.odometer = odometer;
+        setMakeModel(makeModel);
+        setYear(year);
+        setOdometer(odometer);
     }
 
     public String getMakeModel() {
@@ -62,9 +62,9 @@ public class Vehicle extends Asset{
             value = getOriginalCost().multiply(BigDecimal.ONE.subtract(totalReduction));
         }
 
-        boolean exempt = makeModel.indexOf("Honda") >= 0 || makeModel.indexOf("Toyota") >= 0;
+        boolean exempt = getMakeModel().contains("Honda") || getMakeModel().contains("Toyota");
 
-        if (odometer > 100000 && !exempt) {
+        if (getOdometer() > 100000 && !exempt) {
             value = value.multiply(new BigDecimal("0.75"));
         }
 
