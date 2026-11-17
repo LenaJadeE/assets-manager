@@ -19,5 +19,25 @@ public class Main {
                 "Ford F-150", thisYear - 9, 140000));
         myAssets.add(new Vehicle("Grandma's Camry", "2012-05-05", new BigDecimal("24000"),
                 "Toyota Camry", thisYear - 12, 210000));
+
+        for (int i = 0; i < myAssets.size(); i++) {
+            Asset asset = myAssets.get(i);
+
+            String message = "";
+            if (asset instanceof House) {
+                House house = (House) asset;
+                message = "House at " + house.getAddress();
+            } else if (asset instanceof Vehicle) {
+                Vehicle vehicle = (Vehicle) asset;
+                message = "Vehicle: " + vehicle.getYear() + " " + vehicle.getMakeModel();
+            }
+
+            System.out.println(asset.getDescription());
+            System.out.println("  " + message);
+            System.out.println("  Acquired: " + asset.getDateAcquired());
+            System.out.printf("  Paid: $%,.2f%n", asset.getOriginalCost());
+            System.out.printf("  Worth: $%,.2f%n", asset.getValue());
+            System.out.println();
+        }
     }
 }
