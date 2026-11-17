@@ -20,15 +20,11 @@ public class Main {
         myAssets.add(new Vehicle("Grandma's Camry", "2012-05-05", new BigDecimal("24000"),
                 "Toyota Camry", thisYear - 12, 210000));
 
-        for (int i = 0; i < myAssets.size(); i++) {
-            Asset asset = myAssets.get(i);
-
+        for (Asset asset : myAssets) {
             String message = "";
-            if (asset instanceof House) {
-                House house = (House) asset;
+            if (asset instanceof House house) {
                 message = "House at " + house.getAddress();
-            } else if (asset instanceof Vehicle) {
-                Vehicle vehicle = (Vehicle) asset;
+            } else if (asset instanceof Vehicle vehicle) {
                 message = "Vehicle: " + vehicle.getYear() + " " + vehicle.getMakeModel();
             }
 
