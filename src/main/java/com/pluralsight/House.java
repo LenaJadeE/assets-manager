@@ -12,10 +12,10 @@ public class House extends Asset {
     public House(String description, String dateAcquired, BigDecimal originalCost,
                  String address, int condition, int squareFoot, int lotSize) {
         super(description, dateAcquired, originalCost);
-        this.address = address;
-        this.condition = condition;
-        this.squareFoot = squareFoot;
-        this.lotSize = lotSize;
+        setAddress(address);
+        setCondition(condition);
+        setSquareFoot(squareFoot);
+        setLotSize(lotSize);
     }
 
     public String getAddress() {
@@ -54,22 +54,19 @@ public class House extends Asset {
     public BigDecimal getValue() {
         BigDecimal pricePerSquareFoot;
 
-        switch (condition) {
-            case 1:
-                pricePerSquareFoot = new BigDecimal("180");
-                break;
-            case 2:
-                pricePerSquareFoot = new BigDecimal("130");
-                break;
-            case 3:
-                pricePerSquareFoot = new BigDecimal("90");
-                break;
-            default:
-                pricePerSquareFoot = new BigDecimal("80");
+
+        if (getCondition() == 1) {
+            pricePerSquareFoot = new BigDecimal("180");
+        } else if (getCondition() == 2) {
+            pricePerSquareFoot = new BigDecimal("130");
+        } else if (getCondition() == 3) {
+            pricePerSquareFoot = new BigDecimal("90");
+        } else {
+            pricePerSquareFoot = new BigDecimal("80");
         }
 
-        BigDecimal houseValue = pricePerSquareFoot.multiply(BigDecimal.valueOf(squareFoot));
-        BigDecimal lotValue = new BigDecimal("0.25").multiply(BigDecimal.valueOf(lotSize));
+        BigDecimal houseValue = pricePerSquareFoot.multiply(BigDecimal.valueOf(getSquareFoot()));
+        BigDecimal lotValue = new BigDecimal("0.25").multiply(BigDecimal.valueOf(getLotSize()));
 
         return houseValue.add(lotValue);
     }
