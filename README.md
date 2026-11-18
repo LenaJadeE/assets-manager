@@ -25,6 +25,3 @@ I went with option 1. Cash is a real thing I own, so it can't be abstract. And I
 ## Running it
 
 Run Main. For each asset it prints the description, the type, the date I got it, what I paid and what it's worth. At the end it prints my net worth. The tests are in src/test/java/com/pluralsight.
-
-## Excalidraw
-![vehicleStarter.png](vehicleStarter.png)
