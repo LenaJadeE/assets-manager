@@ -20,4 +20,16 @@ class VehicleTest {
 
         assertEquals(0, expected.compareTo(actual));
     }
+
+    @Test
+    void getValue_should_take25PercentOff_whenOver100000MilesAndNotHondaOrToyota() {
+        int thisYear = LocalDate.now().getYear();
+        Vehicle vehicle = new Vehicle("Tom's truck", "2015-01-10", new BigDecimal("20000"),
+                "Ford F-150", thisYear - 5, 140000);
+        BigDecimal expected = new BigDecimal("10500.00");
+
+        BigDecimal actual = vehicle.getValue();
+
+        assertEquals(0, expected.compareTo(actual));
+    }
 }
