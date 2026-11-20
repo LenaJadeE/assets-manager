@@ -65,8 +65,8 @@ public class House extends Asset {
             pricePerSquareFoot = new BigDecimal("80");
         }
 
-        BigDecimal houseValue = pricePerSquareFoot.multiply(BigDecimal.valueOf(getSquareFoot()));
-        BigDecimal lotValue = new BigDecimal("0.25").multiply(BigDecimal.valueOf(getLotSize()));
+        BigDecimal lotPricePerSquareFoot = new BigDecimal("0.25");
+        BigDecimal lotValue = lotPricePerSquareFoot.multiply(BigDecimal.valueOf(getLotSize()));
 
         return houseValue.add(lotValue);
     }
